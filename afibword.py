@@ -53,16 +53,17 @@ def main(args):
 	A = '1415926535'
 	B = '8979323846'
 	F = FAB(7)
-	t = 29
+	t = 40
 	for i in range(len(F)):
 		if len(F[i]*10) >= t:
 			break
 	print(i, F[i])
+	
 	#A,B selector
-	if F[i][t//10] == 'A':
-		print(A[t%10 - 1])
+	if F[i][(t-1)//10] == 'A':
+		print(A[(t-1)%10])
 	else:
-		print(B[t%10 - 1])
+		print(B[(t-1)%10])
 		
 
 if __name__ == '__main__':
