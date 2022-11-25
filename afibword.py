@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
 #  afibword.py
@@ -36,7 +36,12 @@
 	Construct a random ascending sequence of 17 integers 1 <= i <= 130
 	11,23,29,37,41,51,57,83,87,91,99,101,111,119,123,129,130
 	Fab[6] is 7th term
+	
+	A=14159265358979323846264338327950288419716939937510\
+	58209749445923078164062862089986280348253421170679 
 	 
+	B82148086513282306647093844609550582231725359408128\
+	48111745028410270193852110555964462294895493038196
 '''
 
 def FAB(t):
@@ -50,20 +55,22 @@ def FAB(t):
 	
 
 def main(args):
+	z = [((127 + 19*n)*7**n) for n in range(18)] # list of digit positions for main problem
+	
 	A = '1415926535'
 	B = '8979323846'
 	F = FAB(7)
-	t = 40
-	for i in range(len(F)):
-		if len(F[i]*10) >= t:
-			break
-	print(i, F[i])
-	
-	#A,B selector
-	if F[i][(t-1)//10] == 'A':
-		print(A[(t-1)%10])
-	else:
-		print(B[(t-1)%10])
+	for t in range(28,36):
+		for i in range(len(F)):
+			if len(F[i]*10) >= t:
+				break
+		print(i, F[i])
+		
+		#A,B selector
+		if F[i][(t-1)//10] == 'A':
+			print(t,A[(t-1)%10])
+		else:
+			print(t,B[(t-1)%10])
 		
 
 if __name__ == '__main__':
