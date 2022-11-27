@@ -1,0 +1,60 @@
+ba babbababbabbababbab 21
+ab babbababbabbababbab 21
+
+bababbab 8
+||
+abbabbab 8
+      |
+abbababb 8
+
+abbababb 8
+
+abbababb 8
+  ||
+ababbabb 8
+
+ababbaba 8
+|       
+bbabbaba 8
+        
+bbabbaba 8
+    ||
+bbababba 8
+
+bbababba 8
+
+bbababba 8
+
+babbabba 8
+      ||
+babbabab 8
+
+babbabab 8
+
+babbabab 8
+   ||
+bababbab 8
+
+
+bababbababbabbababbababbabbababbabbababbab 42
+             ||                   ||
+abbabbababbababbabbababbabbababbababbabbab 42
+                          ||         
+abbabbababbababbabbababbababbabbababbabbab 42
+     ||           ||
+abbababbabbababbababbabbababbabbababbababb 42
+
+abbababbabbababbababbabbababbababbabbababb 42
+abbababbababbabbababbabbababbababbabbababb 42
+
+ababbabbababbabbababbababbabbababbababbabb 42
+ababbabbababbababbabbababbabbababbababbabb 42
+
+abbababbabbababbab 18
+abbabbababbabbababbab 21
+abbabbababbababbabbab 21
+abbabbababbababbabbab 21
+abbabbababbababbabbab 21
+abbababbabbababbabbab 21
+
+
