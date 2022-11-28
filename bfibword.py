@@ -42,8 +42,16 @@
 	 
 	B=82148086513282306647093844609550582231725359408128\
 	48111745028410270193852110555964462294895493038196
+	
+	#               1046837312942431 (50) in Fib sequence	
+		i:73  f73 =  806515533049393
+		i:74  f74 = 1304969544928657
 '''
 
+
+import random
+
+#-----------------------------------------------------------------------
 def FAB(t):
 	Fab = ['A','B']
 	if t < 3:
@@ -53,24 +61,46 @@ def FAB(t):
 		t -= 1
 	return Fab
 	
+def z():
+	return [((127 + 19*n)*7**n) for n in range(18)] # list of digit positions for main problem
+
+#=======================================================================	
 
 def main(args):
-	z = [((127 + 19*n)*7**n) for n in range(18)] # list of digit positions for main problem
+	# Consider a restricted version using 10 digit words 
+	# f(12) = 144 => 1440 digits in total
 	
+	# generate a list of digit positions to sum
+	z = sorted([random.randrange(1,1440) for i in range(10)])
+	#print(z)
+	
+	# generate a full list of 1440 digits using 
 	A = '1415926535'
 	B = '8979323846'
-	F = FAB(7)
-	for t in range(28,36):
-		for i in range(len(F)):
-			if len(F[i]*10) >= t:
-				break
-		print(i, F[i])
-		
-		#A,B selector
-		if F[i][(t-1)//10] == 'A':
-			print(t,A[(t-1)%10])
+	words = 'BAB'
+	while len(words) < 144:
+		t =''
+		for c in words:
+			if c == 'A':
+				t += 'B'
+			else:
+				t += 'AB'
+		words = t
+	# NOTE: words is a zero-based list 0 -> 143
+	print(len(words), words)
+	print(z)
+	digits = ''
+	for p in z:
+		block = (p-1)//10
+		posn  = (p-1)%10
+		if words[block] == 'A':
+			digits += A[posn]
 		else:
-			print(t,B[(t-1)%10])
+			digits += B[posn]
+	print(digits)
+				
+	
+	return 0
 		
 
 if __name__ == '__main__':
