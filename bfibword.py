@@ -162,6 +162,7 @@ def main(args):
 	# generate a full list of 1440 digits using 
 	A = '1415926535'
 	B = '8979323846'
+	L = len(A)
 	words = 'BAB'
 	while len(words) < 144:
 		t =''
@@ -176,7 +177,7 @@ def main(args):
 	# print(z)
 	digits = ''
 	for p in z:
-		block = (p-1)//10
+		block = (p-1)//L
 		posn  = (p-1)%10
 		if words[block] == 'A':
 			digits += A[posn]
@@ -189,10 +190,10 @@ def main(args):
 	# 		ab_word = 'abbab'
 	# Clear 'digits'
 	# for each digit posn in 'z'
-	#		find F(n) >= posn//10
+	#		find F(n) >= posn//L
 	#		if len(ab_word) < F(n):
 	#			extend ab_word until length >= posn
-	#		block index = (p-1)//10
+	#		block index = (p-1)//L
 	#		if ab_word[block_index] == 'A"
 	#			digit = A[(p-1)%10]
 	#		else:
@@ -203,7 +204,7 @@ def main(args):
 	digits = ''
 	for p in z:
 		i = 0
-		while fib_dict[i] < (p//10):	# establish the index
+		while fib_dict[i] < (p//L):	# establish the index
 			i += 1
 		while len(ab_word) < fib_dict[i]:	# extend the data word if necessary
 			temp = ''
@@ -214,7 +215,7 @@ def main(args):
 					temp += 'AB'			
 			ab_word = temp
 		# find block name and digit
-		block_idx = (p-1)//10
+		block_idx = (p-1)//L
 		if ab_word[block_idx] == 'A':
 			digits += A[(p-1)%10]
 		else:
