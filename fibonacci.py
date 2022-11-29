@@ -22,32 +22,49 @@
 #  
 #  
 
-class Fibonacci:
-	
-	fd = {}
-	
+class Fibonacci():
+
 	def __init__(self):
-		self.fa = (0,0)	#(idx,value)
-		self.fb = (1,1)
-		self.fc = (2,1)
+		self.fn = [0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,
+			1597,2584,4181,6765,10946,17711,28657,46368,75025,
+			121393,196418,317811,514229,832040,1346269,
+			2178309,3524578,5702887,9227465,14930352,24157817,
+			39088169,63245986,102334155]
+		# compute the dictionary from data
+		self.fd = {}
+		for i in range(len(self.fn)):
+			self.fd[i] = self.fn[i]
 	
 	def get_fib(self,idx = None):
 		if idx == None:
-			return self.fc
+			return self.fd[0]
 		else:
-			while self.fc[0] < idx:
-				self.fa = self.fb
-				self.fb = self.fc
-				self.fc = (self.fc[0] + 1, self.fa[1] + self.fb[1])
-			return (self.fc)
-
-
-
+			# if idx in dict return value
+			try:
+				return self.fd[idx]
+			# else xtend dict and return last value
+			except KeyError:
+				# get hi-idx
+				hi_idx = sorted(self.fd)[-1]
+				# extend dictionary
+				while hi_idx < idx:
+					hi_idx += 1
+					self.fd[hi_idx] = self.fd[hi_idx-1] + self.fd[hi_idx-2]
+				return self.fd[hi_idx]
 
 def main(args):
 	fn = Fibonacci()
 	print(fn.get_fib())
 	print(fn.get_fib(5))
+	print(fn.get_fib(38))
+	print(fn.get_fib(39))
+	print(fn.get_fib(40))
+	print(fn.get_fib(41))
+	print(fn.get_fib(38))
+	print(fn.get_fib(39))
+	print(fn.get_fib(40))
+	print(fn.fd)
+	
 	return 0
 
 if __name__ == '__main__':
